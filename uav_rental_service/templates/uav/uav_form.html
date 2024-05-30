@@ -1,0 +1,13 @@
+{% extends "registration/base_generic.html" %}
+
+{% block title %}Add/Edit UAV{% endblock %}
+
+{% block content %}
+  <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} UAV</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  <a href="{% url 'uav_list' %}" class="btn btn-secondary mt-2">Back to List</a>
+{% endblock %}

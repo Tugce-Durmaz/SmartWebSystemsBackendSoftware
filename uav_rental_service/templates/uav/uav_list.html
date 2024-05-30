@@ -1,0 +1,39 @@
+
+
+{% extends "registration/base_generic.html" %}
+
+{% block title %}UAV List{% endblock %}
+
+{% block content %}
+  <h2>UAV List</h2>
+  <form method="get" class="form-inline mb-3">
+    {{ filter.form.as_p }}
+    <button type="submit" class="btn btn-primary ml-2">Search</button>
+  </form>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Weight</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for uav in filter.qs %}
+      <tr>
+        <td>{{ uav.brand }}</td>
+        <td>{{ uav.model }}</td>
+        <td>{{ uav.weight }}</td>
+        <td>{{ uav.category }}</td>
+        <td>
+          <a href="{% url 'uav_edit' uav.id %}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{% url 'uav_delete' uav.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'uav_add' %}" class="btn btn-success">Add UAV</a>
+{% endblock %}

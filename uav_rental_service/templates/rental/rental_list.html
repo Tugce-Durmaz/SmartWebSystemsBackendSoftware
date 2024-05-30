@@ -1,0 +1,30 @@
+{% extends "registration/base_generic.html" %}
+
+{% block title %}Rental List{% endblock %}
+
+{% block content %}
+  <h2>Rental List</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>UAV</th>
+        <th>User</th>
+        <th>Start DateTime</th>
+        <th>End DateTime</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for rental in object_list %}
+  <tr>
+    <td>{{ rental.id }}</td>
+    <td>{{ rental.uav }}</td>
+    <td>{{ rental.user.username }}</td>
+    <td>{{ rental.start_datetime }}</td>
+    <td>{{ rental.end_datetime }}</td> 
+  </tr>
+{% endfor %}
+
+</tbody>
+</table>
+{% endblock %}

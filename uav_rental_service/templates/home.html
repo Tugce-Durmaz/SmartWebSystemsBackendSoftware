@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}UAV Rental Service{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">UAV Rental Service</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="#">{{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneGo - İHA Kiralama Hizmeti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 36px;
+        }
+
+        p {
+            margin-top: 0;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .uav-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slogan {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #003366;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .feature {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #003366;
+        }
+
+        .feature p {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DroneGo</h1>
+        <p>İHA Kiralama Hizmeti</p>
+    </header>
+    <div class="container">
+        <p>En son teknoloji İHA'larla profesyonel çözümler sunuyoruz. Müşterilerimize en iyi deneyimi yaşatmak için buradayız.</p>
+        <img src="gokyuzu.png" alt="Drone Image" class="uav-image">
+        <p class="slogan">Havada Geleceği Keşfedin</p>
+        <div class="features">
+            <div class="feature">
+                <h2>Kaliteli Hizmet</h2>
+                <p>Uzman ekibimizle sizlere kaliteli ve güvenilir hizmet sunuyoruz.</p>
+            </div>
+            <div class="feature">
+                <h2>Geniş Ürün Yelpazesi</h2>
+                <p>Farklı ihtiyaçlarınıza uygun birbirinden çeşitli İHA modelleri sunuyoruz.</p>
+            </div>
+            <div class="feature">
+                <h2>Uygun Fiyatlar</h2>
+                <p>Kaliteli hizmeti uygun fiyatlarla sunuyor, bütçenizi zorlamıyoruz.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
